@@ -28,19 +28,19 @@ The application includes basic error handling and responds with appropriate erro
 Potential Improvements
 Consider enhancing the project by adding more API endpoints and expanding the functionality to include more features related to building decarbonization management.
 
-POSTMAN CMD:
-Get All Items:
-Method: GET
-URL: http://localhost:8000/items/
-Headers:
-accept: application/json
-This command will retrieve all items from the "locations" collection.
-Get Item by ID:
-Method: GET
-URL: http://localhost:8000/items/{item_id}
-Replace {item_id} with the actual ID of the item you want to retrieve.
-Headers:
-accept: application/json
-This command will retrieve a specific item by its ID.
+POSTMAN CMD:<br>
+Get All Items:<br>
+Method: GET<br>
+URL: http://localhost:8000/items/<br>
+Headers:<br>
+accept: application/json<br>
+This command will retrieve all items from the "locations" collection.<br>
+Get Item by ID:<br>
+Method: GET<br>
+URL: http://localhost:8000/items/{item_id}<br>
+Replace {item_id} with the actual ID of the item you want to retrieve.<br>
+Headers:<br>
+accept: application/json<br>
+This command will retrieve a specific item by its ID.<br>
 
 
