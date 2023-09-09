@@ -45,3 +45,18 @@ async def read_items():
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="127.0.0.1", port=8000)
+
+# POSTMAN CMD:
+# Get All Items:
+# Method: GET
+# URL: http://localhost:8000/items/
+# Headers:
+# accept: application/json
+# This command will retrieve all items from the "locations" collection.
+# Get Item by ID:
+# Method: GET
+# URL: http://localhost:8000/items/{item_id}
+# Replace {item_id} with the actual ID of the item you want to retrieve.
+# Headers:
+# accept: application/json
+# This command will retrieve a specific item by its ID.
