@@ -1,46 +1,30 @@
 # FastAPI-SQLAlchemy-Asyncio-Firestore
+
 Project Overview
-This project is a web application built with FastAPI, SQLAlchemy, and asyncio, focusing on constructing a backend system for a building decarbonization management application. The application places a strong emphasis on data modeling and external integrations.
+This project is a web application built with FastAPI, integrating both SQLAlchemy and Firestore to provide flexibility in managing data. The application focuses on creating, reading, and listing items in both Firestore (NoSQL) and an SQL database simultaneously. It demonstrates how to use two different types of databases in a single application.
 
 Components and Technologies
-FastAPI: The web framework used to create the API endpoints and manage HTTP requests and responses.
-SQLAlchemy: The ORM library for working with databases, enabling you to define and interact with database tables using Python classes.
-SQLite: The database used in this project. SQLite is a self-contained, serverless, and zero-configuration SQL database engine.
-Pydantic: Pydantic is used for data validation and serialization, ensuring that data sent to and received from the API endpoints is in the expected format.
-uvicorn: Uvicorn is a lightweight ASGI server that serves the FastAPI application.
+FastAPI: The web framework used to create API endpoints and manage HTTP requests and responses.
+SQLAlchemy: The ORM (Object-Relational Mapping) library for working with SQL databases. It enables the definition and interaction with database tables using Python classes.
+Firestore: A NoSQL database provided by Google Cloud. It offers schema-less storage and real-time synchronization.
+Firebase Admin SDK: The Firebase Admin SDK is used to initialize Firestore.
+uvicorn: Uvicorn serves as the lightweight ASGI server to run the FastAPI application.
 Project Structure
-sample.py: The main Python script containing the FastAPI application and database models.
-Database Model
-Building: The SQLAlchemy model representing a building. It includes fields such as id, name, and carbon_emission.
-API Endpoints
-Create Building: This POST endpoint (/buildings/) allows you to create a new building record in the database. It accepts a JSON payload with the name and carbon_emission fields.
-Get Building by ID: This GET endpoint (/buildings/{building_id}) retrieves information about a building by its ID. It returns a JSON response with the building's details.
-Database Initialization
-The initialize_db() function is called to initialize the SQLite database. It creates the necessary database tables and enables foreign key support.
-
+main.py: The main Python script containing the FastAPI application, SQLAlchemy database models, and Firestore integration.
+your_firestore_credentials.json: Replace this file with your Firestore credentials JSON.
+test.db: The SQLite database used in this project (you can replace it with your preferred SQL database).
+Features
+Create Item: This POST endpoint (/items/) allows you to create a new item. It accepts a JSON payload containing the item's name and description. The item is simultaneously stored in both Firestore and the SQL database.
+Read Item by ID: This GET endpoint (/items/{item_id}) retrieves item information by its ID. It returns a JSON response with details from both Firestore and the SQL database.
+Read All Items: This GET endpoint (/items/) lists all items stored in both Firestore and the SQL database.
 Usage
-To run the application, execute the script. The application starts an ASGI server (uvicorn) and listens on port 8000 by default.
+Replace "your_firestore_credentials.json" with the actual path to your Firestore credentials JSON file.
+Configure the database URL in the DATABASE_URL variable according to your preferred SQL database.
+Run the application by executing the script.
+The application starts an ASGI server (uvicorn) and listens on port 8000 by default.
 Use HTTP clients like curl, httpie, or a web browser to interact with the API endpoints.
-For example, you can use curl to create a new building or retrieve building information.
 Error Handling
-The application includes basic error handling and responds with appropriate error codes and messages when issues arise, such as when a building is not found.
+The application includes basic error handling and responds with appropriate error codes and messages when issues arise, such as when an item is not found.
 
 Potential Improvements
-Consider enhancing the project by adding more API endpoints and expanding the functionality to include more features related to building decarbonization management.
-
-POSTMAN CMD:<br>
-Get All Items:<br>
-Method: GET<br>
-URL: http://localhost:8000/items/<br>
-Headers:<br>
-accept: application/json<br>
-This command will retrieve all items from the "locations" collection.<br>
-Get Item by ID:<br>
-Method: GET<br>
-URL: http://localhost:8000/items/{item_id}<br>
-Replace {item_id} with the actual ID of the item you want to retrieve.<br>
-Headers:<br>
-accept: application/json<br>
-This command will retrieve a specific item by its ID.<br>
-
-
+Consider enhancing the project by adding more API endpoints and expanding the functionality to include features related to item management in both Firestore and SQL databases.
